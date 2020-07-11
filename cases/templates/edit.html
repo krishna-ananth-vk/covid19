@@ -1,0 +1,72 @@
+
+{% extends "base.html" %}
+{% block content %}
+    <div class="container">
+    
+    {% if d %}
+
+
+    
+        <h1 class="title is-1">Edit data - {{ d.name }}</h1>
+         
+
+        
+        <form action="{% url 'cases:updated' d.id %}" method="post">
+
+        {% csrf_token %}
+
+             
+            <div class="form-group">
+                <label class="label">Confirmed :</label>
+                <div class="control">
+                    <input type="text" class="form-control" name="con" id="con" value="{{ d.Confirmed }}">
+                </div>
+              </div>
+
+
+
+              <div class="form-group">
+                <label class="label">Recovered :</label>
+                <div class="control">
+                      <input type="text" class="form-control" name="rec" id="rec" value="{{ d.Recovered }}"> 
+
+                </div>
+              </div>
+
+
+              <div class="form-group" >
+                <label class="label">Death : </label>
+                <div class="control">
+                    <input class="form-control" type="text" name="dea" id="dea" value="{{ d.Death }} "> 
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="label">Active :</label>
+                <div class="control">
+                     <input class="form-control" type="text" name="act" id="act" value="{{ d.Active }} "> 
+                </div>
+              </div>
+
+
+            <div class="form-group">
+                
+                  <button type="submit" class="btn btn-success">Save</button>
+               
+                  <a href="../" class="btn btn-secondary">Cancel</a>
+                
+              </div>
+            
+            
+        </form>
+   
+    {% else %}
+        <p>No polls are available.</p>
+    {% endif %}
+
+
+
+
+</div>
+    
+{% endblock %}

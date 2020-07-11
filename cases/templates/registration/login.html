@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+
+    
+    {% load crispy_forms_tags %}
+    <div class="container">
+        <div class="login-form border-secondary">
+
+            <div class="form-title">
+                Login
+            </div>
+            <form  method="post">
+
+                {% csrf_token %}
+        
+                <div class="form-group">
+                     
+                    {{form|crispy}}
+        
+        
+                      
+        
+        
+                    <div class="field is-grouped">
+                        
+                        <button class="btn btn-success my-2 my-sm-0"type="submit" >Login</button>
+        
+                        
+                        
+                            <a href="/" class="btn btn-secondary my-2 my-sm-0">
+                                Cancel
+                            </a>
+                          
+                        
+                    </div>
+                    
+                    <p class="text-secondary login-tr-info">
+                        Having trouble login..? Contact site admin
+                    </p>
+        
+                </div>
+                    
+                    
+            </form>
+        </div>
+    </div>
+
+    
+        
+{% endblock %}

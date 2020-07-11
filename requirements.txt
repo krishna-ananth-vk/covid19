@@ -1,0 +1,7 @@
+Django
+gunicorn
+postgres
+psycopg2
+dj-database-url
+django_heroku
+django-crispy-forms

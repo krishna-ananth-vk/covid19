@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <style>
+
+        .container{
+            width:90%;
+            margin: auto;
+        }
+        
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    
+<div class="container">
+
+
+
+    <div class="notification is-primary" id="noti">
+        <button class="delete" id="close"></button>
+        Data Updated
+    </div>
+{% if d %}
+    
+<h1>Data Updated</h1>
+<h3>{{ d.name }}</h3> 
+
+Confirmed : {{ d.Confirmed }}
+<br>
+
+
+Recovered : {{ d.Recovered }} 
+
+<br>
+
+Death : {{ d.Death }} 
+
+<br>
+
+Active : {{ d.Active }} 
+
+{% else %}
+<p>No polls are available.</p>
+{% endif %}
+
+<br>
+<br>
+<br>
+
+<a href="../">Home</a>
+
+
+</div>
+
+
+<script>
+    document.getElementById("close").onclick = function(){
+        document.getElementById("noti").remove()
+    }
+</script>
+</body>
+</html>
