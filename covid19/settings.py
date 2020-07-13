@@ -29,8 +29,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['0.0.0.0','127.0.0.1','192.168.43.113','https://mysterious-hamlet-94096.herokuapp.com/']
 
