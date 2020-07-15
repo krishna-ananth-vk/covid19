@@ -29,7 +29,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 def index(request):
     
 
-    print(request.user.password)
+    
     d = District.objects.order_by('id')
     context = {'d': d}
 
