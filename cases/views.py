@@ -29,7 +29,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 def index(request):
     
 
-
+    print(request.user.password)
     d = District.objects.order_by('id')
     context = {'d': d}
 
@@ -42,7 +42,7 @@ def districtwise(request,did):
 
         raise Http404("No data available")
         
-
+    
 
     context = {'d': dis}
     return render(request, 'district.html', context)
@@ -50,7 +50,8 @@ def districtwise(request,did):
 def edit(request,did):
 
     if request.user.is_authenticated:
-        print("test")
+        # print(vars(request))
+        
 
         dis = District.objects.get(pk=did)
         context = {'d': dis}
@@ -62,15 +63,19 @@ def edit(request,did):
 
 def updated(request,did):
 
-    dis = District.objects.get(pk=did)
-    dis.Confirmed = request.POST['con']
-    dis.Recovered = request.POST['rec']
-    dis.Death = request.POST['dea']
-    dis.Active = request.POST['act']
-    dis.save()
-    context = { 'd': dis , 'a': request.POST['con']}
-    return render(request, 'update.html', context)
+    if request.user.is_authenticated:
 
+        dis = District.objects.get(pk=did)
+        dis.Confirmed = request.POST['con']
+        dis.Recovered = request.POST['rec']
+        dis.Death = request.POST['dea']
+        dis.Active = request.POST['act']
+        dis.save()
+        context = { 'd': dis , 'a': request.POST['con']}
+        return render(request, 'update.html', context)
+
+    else:
+        return render(request, 'authentication_needed.html')
 
 def login(request):
     pass
