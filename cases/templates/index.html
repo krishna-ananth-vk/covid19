@@ -128,7 +128,9 @@
                     
                     <th>Death</th>
                     <th>Active</th>
-                    <th></th>
+                    {% if user.is_authenticated %}
+                        <th></th>
+                    {% endif %}
                 </tr>
                 {% for d in d %}
                 <tr>
@@ -137,8 +139,9 @@
                     <td> {{ d.Recovered }} </td>
                     <td> {{ d.Death }} </td> 
                     <td> {{ d.Active }} </td>
-                    <td> <a href="/edit/{{ d.id }}"><i class="fa fa-pencil-square" aria-hidden="true"></i> </td>
-                    
+                    {% if user.is_authenticated %}
+                        <td> <a href="/edit/{{ d.id }}"><i class="fa fa-pencil-square" aria-hidden="true"></i> </td>
+                    {% endif %}
                 </tr>
                 {% endfor %}
             </table>
