@@ -28,7 +28,20 @@ class Case(models.Model):
     dis = models.ForeignKey("District",on_delete=models.SET_NULL,null =True)
 
     gender = models.CharField(max_length=1)
+    
+    age = models.IntegerField()
 
+class DateReport(models.Model):
+
+    
+
+    date = models.DateField(primary_key=True)
+
+    confirmed = models.IntegerField()
+    Active = models.IntegerField()
+    Death = models.IntegerField()
+    Recovered = models.IntegerField()
+    
     
 
 

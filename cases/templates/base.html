@@ -11,7 +11,12 @@
     <script src="https://kit.fontawesome.com/c9f2227385.js" crossorigin="anonymous"></script>
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <title>Test</title>
+    <title>
+        {% block title %}
+
+
+        {% endblock %}
+    </title>
 
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"> -->
     <style>
@@ -45,6 +50,19 @@
             margin-top: 8px;
         }
 
+        .footer {
+            
+            width: 100%;
+            padding: 10px;
+            line-height: 60px;
+            background-color: #f5f5f5;
+        }
+        
+
+        .code{
+            font-family: 'Courier New', Courier, monospace;
+            color: #e83e8c;
+        }
 
         @media screen and (max-width: 724px) {
 
@@ -74,6 +92,33 @@
 
 
     {% endblock %}
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    Data Source : <a href="https://dashboard.kerala.gov.in">GoK Dashboard - Official Covid-19 Statistics</a>
+    
+                </div>
+                <div class="col-sm">
+                    Want to collaborate...?❤ Project on <a href="https://github.com/the-code-builder/covid19">GitHub</a>
+                    
+                    
+                </div>
+            </div>
+            <div class="text-center w-100 p-3 code" >
+                <i class="fa fa-code"></i> 
+                with 
+                <i class="fa fa-heart"></i> 
+                & 
+                <i class="fa fa-coffee"></i> 
+                by 
+                <a href="https://github.com/the-code-builder" class="text-reset">code-builder</a>
+            </div>
+        </div>
+
+    </footer>
     
 </body>
 </html>

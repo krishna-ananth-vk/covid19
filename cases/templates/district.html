@@ -1,24 +1,9 @@
+{% extends "base.html" %}
+{% block title %}
+Data updated
+{% endblock %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
-    <style>
-
-        .container{
-            width:90%;
-            margin: auto;
-        }
-        
-    </style>
-    <title>Document</title>
-</head>
-<body>
+{% block content %}
 <div class="container">
 
     {% if d %}
@@ -33,6 +18,7 @@
 
     <br>
 
+    
     Death : {{ d.Death }} 
 
     <br>
@@ -40,7 +26,7 @@
     Active : {{ d.Active }} 
    
 {% else %}
-    <p>No polls are available.</p>
+    <p>No data are available.</p>
 {% endif %}
 
 
@@ -49,15 +35,12 @@
 <br>
 <br>
 
-<a href="../"><i class="material-icons">
-    home
-</i></a>
+<a href="../"><i class="fa fa-home"></i></a>
 
 
     
     
 </div>
-</body>
-</html>
+{% endblock %}
 
 

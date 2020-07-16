@@ -1,4 +1,8 @@
 {% extends "base.html" %}
+{% block title %}
+Covid19
+{% endblock %}
+
 {% block content %}
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -140,7 +144,7 @@
                     <td> {{ d.Death }} </td> 
                     <td> {{ d.Active }} </td>
                     {% if user.is_authenticated %}
-                        <td> <a href="/edit/{{ d.id }}"><i class="fa fa-pencil-square" aria-hidden="true"></i> </td>
+                        <td> <a href="/edit/{{ d.id }}"><i class="fa fa-edit" aria-hidden="true"></i> </td>
                     {% endif %}
                 </tr>
                 {% endfor %}
