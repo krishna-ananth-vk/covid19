@@ -17,7 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 def index(request):
     
 
-    tempdata()
+    # tempdata()
     d = District.objects.order_by('Confirmed')
     
     t = TestReport.objects.order_by('date').last()
