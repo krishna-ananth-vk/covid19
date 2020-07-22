@@ -100,8 +100,8 @@ def tempdata():
     f.close()
 
 
-    f = open(os.path.join(BASE_DIR,'test.json'))
-    data = json.load(f)
+    fd = open(os.path.join(BASE_DIR,'test.json'))
+    data = json.load(fd)
     # print(data)
     for i in data:
     # i=data[0]
@@ -111,7 +111,7 @@ def tempdata():
         d.total_sent = i["TotSent"]
         d.sent = i["Sent"]
         d.total_positive = i["TotPositive"]
-        d.new_positive = i["New Positve"]
+        d.new_positive = i["New Positive"]
         d.save()
 
         print(i)
