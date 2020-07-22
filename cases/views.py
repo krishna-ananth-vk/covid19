@@ -81,7 +81,7 @@ def updated(request,did):
         return render(request, 'authentication_needed.html')
 
 def tempdata():
-    f = open(os.path.join(BASE_DIR,'test.json'))
+    f = open(os.path.join(BASE_DIR,'data.json'))
     data = json.load(f)
     # print(data)
     for i in data:
@@ -100,7 +100,7 @@ def tempdata():
     f.close()
 
 
-    f = open(os.path.join(BASE_DIR,'data.json'))
+    f = open(os.path.join(BASE_DIR,'test.json'))
     data = json.load(f)
     # print(data)
     for i in data:
