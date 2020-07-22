@@ -1,37 +1,40 @@
 from django.shortcuts import render
 import os
-
+import json
+from django.db.models import Sum
 from django.http import HttpResponse,Http404
-from .models import District
+from .models import District, DateReport, TestReport
 
-# import firebase_admin
-# from firebase_admin import credentials
-# from firebase_admin import storage
+
 
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# cred = credentials.Certificate(os.path.join(BASE_DIR, 'test-ce84a8a94eca.json'))
-# firebase_admin.initialize_app(cred, {
-#     'storageBucket': 'test-6615.appspot.com'
-# })
 
-# bucket = storage.bucket()
-
-
-# blob = bucket.blob("rsz_20161114_123947-1.jpg")
-# print(vars(blob))
-
-# blob.download_to_filename("C:\\Users\\ASUS\\Documents\\covid19\\covid19")
 
 # Create your views here.
 
 def index(request):
     
 
+    tempdata()
+    d = District.objects.order_by('Confirmed')
     
-    d = District.objects.order_by('id')
-    context = {'d': d}
+    t = TestReport.objects.order_by('date').last()
+    
+    # daily = DateReport.objects.order_by('date').last()
+    dr = DateReport.objects.order_by('date')    
+    daily = dr.last()
+    tc = dr.aggregate(Sum('confirmed'))
+    tr = dr.aggregate(Sum('Recovered'))
+    td = dr.aggregate(Sum('Death'))
+    ta = tc['confirmed__sum'] - tr['Recovered__sum']
+    print(daily)
+    
+    d_active = daily.confirmed - daily.Recovered - daily.Death
+    print(d_active)
+    
+    context = {'d': d , 'dr' : dr , 'tc' : tc, 'ta':ta , 'tr' : tr , 'td': td, 't':t, 'daily':daily , 'da':d_active}
 
     return render(request, 'index.html', context)
     # return HttpResponse('hello world')
@@ -77,6 +80,44 @@ def updated(request,did):
     else:
         return render(request, 'authentication_needed.html')
 
-def login(request):
-    pass
+def tempdata():
+    f = open(os.path.join(BASE_DIR,'test.json'))
+    data = json.load(f)
+    # print(data)
+    for i in data:
+    # i=data[0]
+        d = DateReport()
+        
+        d.date = i["Date"]
+        d.confirmed = i["Confirmed"]
+        d.Recovered = i["Recovered"]
+        d.Death = i["Death"]
+        d.Active = i["Active"]
+        d.save()
+
+        print(i)
+
+    f.close()
+
+
+    f = open(os.path.join(BASE_DIR,'data.json'))
+    data = json.load(f)
+    # print(data)
+    for i in data:
+    # i=data[0]
+        d = TestReport()
+        
+        d.date = i["Date"]
+        d.total_sent = i["TotSent"]
+        d.sent = i["Sent"]
+        d.total_positive = i["TotPositive"]
+        d.new_positive = i["New Positve"]
+        d.save()
+
+        print(i)
+
+    f.close()
+
+def data(request):
+    return render(request, 'data_upload.html')
 

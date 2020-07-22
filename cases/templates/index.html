@@ -18,8 +18,9 @@ Covid19
         </ul>
 
         {% if user.is_authenticated %}
-
-            <span class="btn btn-outline-secondary my-2 my-sm-0" >{{ user.get_full_name }} <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+            
+            
+            <a href="/admin" class="btn btn-outline-secondary my-2 my-sm-0" >{{ user.get_full_name }} <i class="fa fa-user-circle" aria-hidden="true"></i></a>
             &nbsp;
             <a href="/logout"><button class="btn btn-outline-danger my-2 my-sm-0" >Logout <i class="fa fa-sign-out" aria-hidden="true"></i></button></a>
         {% else %}
@@ -53,8 +54,8 @@ Covid19
                     <div class="card border-primary">
                 
                         <div class="card-body">
-                            <h4 class="card-title">6195</h4>
-                            <span class="card-text ">+225</span>
+                            <h4 class="card-title">{{tc.confirmed__sum}}</h4>
+                            <span class="card-text ">{{daily.confirmed}}</span>
                             <br>
                             <span class="text-primary">Total Confirmed</span> 
                         </div>
@@ -67,8 +68,8 @@ Covid19
                     <div class="card border-warning">
                             
                         <div class="card-body">
-                            <h4 class="card-title">2605</h4>
-                            <span class="card-text ">+99</span>
+                            <h4 class="card-title">{{ta}}</h4>
+                            <span class="card-text ">+{{da}}</span>
                             <br>
                             <span class="text-warning">Active Cases</span> 
                             
@@ -85,8 +86,8 @@ Covid19
                     <div class="card border-success ">
                 
                         <div class="card-body">
-                            <h4 class="card-title">3559</h4>
-                            <span class="card-text ">+126</span>
+                            <h4 class="card-title">{{tr.Recovered__sum}}</h4>
+                            <span class="card-text ">+{{daily.Recovered}}</span>
                             <br>
                             <span class="text-success">Recovered</span> 
                             
@@ -97,8 +98,8 @@ Covid19
                 <div class="col py-2">
                     <div class="card border-danger">
                         <div class="card-body">
-                            <h4 class="card-title">27</h4>
-                            <span class="card-text ">+0</span>
+                            <h4 class="card-title">{{td.Death__sum}}</h4>
+                            <span class="card-text ">+{{daily.Death}}</span>
                             <br>
                             <span class="text-danger">Death</span> 
                             
@@ -110,6 +111,7 @@ Covid19
         </div>
     </div>
 
+    <br>
     <div class="row">
 
         
@@ -121,8 +123,11 @@ Covid19
         <div class="col-sm">
             {% if d %}
     
+            <div class="h3">
+                District Wise Report
+            </div>
 
-
+            <br>
 
             <table class="table table-striped table-hover ">
                 <tr>
@@ -146,6 +151,110 @@ Covid19
                     {% if user.is_authenticated %}
                         <td> <a href="/edit/{{ d.id }}"><i class="fa fa-edit" aria-hidden="true"></i> </td>
                     {% endif %}
+                </tr>
+                {% endfor %}
+            </table>
+
+
+            {% else %}
+                <p>No polls are available.</p>
+            {% endif %}
+        </div>
+
+        
+        
+            
+        
+            
+        
+        <div class="col-sm">
+
+            <div class="h3">
+                Samples Tested
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm">
+                    <div class="row ">
+                        <div class="col py-2 ">
+                            <div class="card shadow-sm">
+                        
+                                <div class="card-body">
+                                    <h4 class="card-title">{{t.total_sent}}</h4>
+                                    <span class="text-muted">Total <br> Sent</span> 
+                                </div>
+                                
+                            </div>
+                        </div>
+                    
+        
+                        <div class="col  py-2">
+                            <div class="card shadow-sm">
+                                    
+                                <div class="card-body">
+                                    <h4 class="card-title">{{t.total_positive}}</h4>
+                                    <span class="text-muted">Total <br> Positive</span> 
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+        
+                </div>
+                <div class="col-sm">
+                    <div class="row">
+                        <div class="col py-2">
+                            <div class="card shadow-sm">
+                        
+                                <div class="card-body">
+                                    <h4 class="card-title">285158</h4>
+                                    <span class="text-muted">Routine <br> Sent</span> 
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="col py-2">
+                            <div class="card shadow-sm">
+                                <div class="card-body">
+                                    <h4 class="card-title">7016</h4>
+                                    <span class="text-muted">Routine <br>  Pending</span> 
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            {% if dr %}
+    
+            <div class="h3">
+                Daily Report
+            </div>
+            <br>
+
+            <table class="table table-striped table-hover ">
+                <tr>
+                    <th>District</th>
+                    <th>Confirmed</th>
+                    <th>Recovered</th>
+                    
+                    <th>Death</th>
+                    <th>Active</th>
+                    
+                </tr>
+                {% for dr in dr %}
+                <tr>
+                    <td>{{ dr.date }}</td>
+                    <td> {{ dr.confirmed }} </td>
+                    <td> {{ dr.Recovered }} </td>
+                    <td> {{ dr.Death }} </td> 
+                    <td> {{ dr.Active }} </td>
+                    
                 </tr>
                 {% endfor %}
             </table>

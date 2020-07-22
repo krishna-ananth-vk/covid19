@@ -33,8 +33,6 @@ class Case(models.Model):
 
 class DateReport(models.Model):
 
-    
-
     date = models.DateField(primary_key=True)
 
     confirmed = models.IntegerField()
@@ -42,7 +40,13 @@ class DateReport(models.Model):
     Death = models.IntegerField()
     Recovered = models.IntegerField()
     
-    
 
+class TestReport(models.Model):
+    
+    date = models.DateField(primary_key=True)
+    total_sent = models.IntegerField()
+    sent = models.IntegerField()
+    total_positive = models.IntegerField()
+    new_positive = models.IntegerField()
 
 

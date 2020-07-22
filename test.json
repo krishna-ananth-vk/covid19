@@ -1,0 +1,261 @@
+[
+  {
+    "Date": "2020-06-11",
+    "TotSent": 135974,
+    "Sent": 4968,
+    "TotPositive": 2244,
+    "New Positive": 83
+  },
+  {
+    "Date": "2020-06-12",
+    "TotSent": 140457,
+    "Sent": 4483,
+    "TotPositive": 2322,
+    "New Positive": 78
+  },
+  {
+    "Date": "2020-06-13",
+    "TotSent": 144842,
+    "Sent": 4385,
+    "TotPositive": 2407,
+    "New Positive": 85
+  },
+  {
+    "Date": "2020-06-14",
+    "TotSent": 149164,
+    "Sent": 4322,
+    "TotPositive": 2461,
+    "New Positive": 54
+  },
+  {
+    "Date": "2020-06-15",
+    "TotSent": 151686,
+    "Sent": 2522,
+    "TotPositive": 2543,
+    "New Positive": 82
+  },
+  {
+    "Date": "2020-06-16",
+    "TotSent": 157117,
+    "Sent": 5431,
+    "TotPositive": 2622,
+    "New Positive": 79
+  },
+  {
+    "Date": "2020-06-17",
+    "TotSent": 161829,
+    "Sent": 4712,
+    "TotPositive": 2697,
+    "New Positive": 75
+  },
+  {
+    "Date": "2020-06-18",
+    "TotSent": 169035,
+    "Sent": 7206,
+    "TotPositive": 2794,
+    "New Positive": 97
+  },
+  {
+    "Date": "2020-06-19",
+    "TotSent": 173729,
+    "Sent": 4694,
+    "TotPositive": 2912,
+    "New Positive": 118
+  },
+  {
+    "Date": "2020-06-20",
+    "TotSent": 178559,
+    "Sent": 4830,
+    "TotPositive": 3039,
+    "New Positive": 127
+  },
+  {
+    "Date": "2020-06-21",
+    "TotSent": 183201,
+    "Sent": 4642,
+    "TotPositive": 3172,
+    "New Positive": 133
+  },
+  {
+    "Date": "2020-06-22",
+    "TotSent": 185903,
+    "Sent": 2702,
+    "TotPositive": 3310,
+    "New Positive": 138
+  },
+  {
+    "Date": "2020-06-23",
+    "TotSent": 192059,
+    "Sent": 6156,
+    "TotPositive": 3451,
+    "New Positive": 141
+  },
+  {
+    "Date": "2020-06-24",
+    "TotSent": 197567,
+    "Sent": 5508,
+    "TotPositive": 3603,
+    "New Positive": 152
+  },
+  {
+    "Date": "2020-06-25",
+    "TotSent": 203574,
+    "Sent": 6007,
+    "TotPositive": 3726,
+    "New Positive": 123
+  },
+  {
+    "Date": "2020-06-26",
+    "TotSent": 209456,
+    "Sent": 5882,
+    "TotPositive": 3876,
+    "New Positive": 150
+  },
+  {
+    "Date": "2020-06-27",
+    "TotSent": 215243,
+    "Sent": 5787,
+    "TotPositive": 4071,
+    "New Positive": 195
+  },
+  {
+    "Date": "2020-06-28",
+    "TotSent": 220821,
+    "Sent": 5578,
+    "TotPositive": 4189,
+    "New Positive": 118
+  },
+  {
+    "Date": "2020-06-29",
+    "TotSent": 224737,
+    "Sent": 3916,
+    "TotPositive": 4311,
+    "New Positive": 122
+  },
+  {
+    "Date": "2020-06-30",
+    "TotSent": 231570,
+    "Sent": 6833,
+    "TotPositive": 4442,
+    "New Positive": 131
+  },
+  {
+    "Date": "2020-07-01",
+    "TotSent": 239017,
+    "Sent": 7447,
+    "TotPositive": 4593,
+    "New Positive": 106
+  },
+  {
+    "Date": "2020-07-02",
+    "TotSent": 246799,
+    "Sent": 7782,
+    "TotPositive": 4753,
+    "New Positive": 160
+  },
+  {
+    "Date": "2020-07-03",
+    "TotSent": 253011,
+    "Sent": 6212,
+    "TotPositive": 4964,
+    "New Positive": 211
+  },
+  {
+    "Date": "2020-07-04",
+    "TotSent": 260011,
+    "Sent": 7000,
+    "TotPositive": 5204,
+    "New Positive": 240
+  },
+  {
+    "Date": "2020-07-05",
+    "TotSent": 268218,
+    "Sent": 8207,
+    "TotPositive": 5429,
+    "New Positive": 225
+  },
+  {
+    "Date": "2020-07-06",
+    "TotSent": 275823,
+    "Sent": 7605,
+    "TotPositive": 5622,
+    "New Positive": 193
+  },
+  {
+    "Date": "2020-07-07",
+    "TotSent": 285968,
+    "Sent": 10145,
+    "TotPositive": 5894,
+    "New Positive": 272
+  },
+  {
+    "Date": "2020-07-08",
+    "TotSent": 296183,
+    "Sent": 10215,
+    "TotPositive": 6195,
+    "New Positive": 301
+  },
+  {
+    "Date": "2020-07-09",
+    "TotSent": 307219,
+    "Sent": 11036,
+    "TotPositive": 6534,
+    "New Positive": 339
+  },
+  {
+    "Date": "2020-07-10",
+    "TotSent": 320485,
+    "Sent": 13266,
+    "TotPositive": 6950,
+    "New Positive": 416
+  },
+  {
+    "Date": "2020-07-11",
+    "TotSent": 334849,
+    "Sent": 14364,
+    "TotPositive": 7438,
+    "New Positive": 488
+  },
+  {
+    "Date": "2020-07-12",
+    "TotSent": 347529,
+    "Sent": 12680,
+    "TotPositive": 7873,
+    "New Positive": 435
+  },
+  {
+    "Date": "2020-07-13",
+    "TotSent": 416282,
+    "Sent": 68753,
+    "TotPositive": 8322,
+    "New Positive": 445
+  },
+  {
+    "Date": "2020-07-14",
+    "TotSent": 435043,
+    "Sent": 18761,
+    "TotPositive": 8930,
+    "New Positive": 608
+  },
+  {
+    "Date": "2020-07-15",
+    "TotSent": 453716,
+    "Sent": 18673,
+    "TotPositive": 9553,
+    "New Positive": 623
+  },
+  {
+    "Date": "2020-07-16",
+    "TotSent": 472271,
+    "Sent": 18555,
+    "TotPositive": 10275,
+    "New Positive": 722
+  },
+  {
+    "Date": "2020-07-17",
+    "TotSent": 489395,
+    "Sent": 17124,
+    "TotPositive": 11066,
+    "New Positive": 791
+  }
+]
