@@ -20,6 +20,8 @@ class District(models.Model):
 
     Active = models.IntegerField()
     
+    def __str__(self):
+        return self.name
 
 class Case(models.Model):
 

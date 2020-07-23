@@ -5,7 +5,8 @@ from django.db.models import Sum
 from django.http import HttpResponse,Http404
 from .models import District, DateReport, TestReport
 
-
+from rest_framework import viewsets
+from .serializers import DistrictSerializer
 
 
 
@@ -121,3 +122,12 @@ def tempdata():
 def data(request):
     return render(request, 'data_upload.html')
 
+
+
+# API
+
+class DistrictViewSet(viewsets.ModelViewSet):
+    queryset = District.objects.order_by('id')
+    serializer_class = DistrictSerializer
+
+    http_method_names = ['get']
