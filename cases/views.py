@@ -2,7 +2,7 @@ from django.shortcuts import render
 import os
 import json
 from django.db.models import Sum
-from django.http import HttpResponse,Http404
+from django.http import HttpResponse,Http404,JsonResponse
 from .models import District, DateReport, TestReport
 
 from rest_framework import viewsets
@@ -124,6 +124,32 @@ def data(request):
 
 
 
+def info(request):
+
+    dr = DateReport.objects.order_by('date')    
+    daily = dr.last()
+    tc = dr.aggregate(Sum('confirmed'))
+    tr = dr.aggregate(Sum('Recovered'))
+    td = dr.aggregate(Sum('Death'))
+    ta = tc['confirmed__sum'] - tr['Recovered__sum']
+    d_active = daily.confirmed - daily.Recovered - daily.Death
+
+    a = {
+        'tc' : tc['confirmed__sum'], 
+        'ta':ta , 
+        'tr' : tr['Recovered__sum'] , 
+        'td': td["Death__sum"], 
+        
+     
+        'da':d_active
+
+    }
+
+    return JsonResponse(a)
+
+
+
+
 # API
 
 class DistrictViewSet(viewsets.ModelViewSet):
@@ -131,3 +157,5 @@ class DistrictViewSet(viewsets.ModelViewSet):
     serializer_class = DistrictSerializer
 
     http_method_names = ['get']
+
+

@@ -15,6 +15,7 @@ urlpatterns = [
     path('updated/<int:did>', views.updated, name='updated'),
     path('data/', views.data, name='data'),
     path('api', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('info/', views.info, name='info'),
 ]
 
