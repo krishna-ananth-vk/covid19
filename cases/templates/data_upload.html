@@ -1,48 +1,31 @@
 {% extends "base.html" %}
 {% block title %}
-Data updated
+Edit daily report
 {% endblock %}
 
 {% block content %}
 
 
-<form action="" method="post">
+<div class="container">
+  <div class="h2">
+    Daily Report
+  </div>
+  <br><br><br>
+  <form action="{% url 'cases:updateDailyReport' %}" method="post">
 
     {% csrf_token %}
 
          
         <div class="form-group">
-            <label class="label">Confirmed :</label>
+            <label class="label">Paste Data here (json):</label>
             <div class="control">
-                <input type="text" class="form-control" name="con" id="con" value="{{ d.Confirmed }}">
+                <Textarea class="form-control" name='daily_report' required></Textarea>
             </div>
           </div>
 
 
 
-          <div class="form-group">
-            <label class="label">Recovered :</label>
-            <div class="control">
-                  <input type="text" class="form-control" name="rec" id="rec" value="{{ d.Recovered }}"> 
-
-            </div>
-          </div>
-
-
-          <div class="form-group" >
-            <label class="label">Death : </label>
-            <div class="control">
-                <input class="form-control" type="text" name="dea" id="dea" value="{{ d.Death }} "> 
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="label">Active :</label>
-            <div class="control">
-                 <input class="form-control" type="text" name="act" id="act" value="{{ d.Active }} "> 
-            </div>
-          </div>
-
+         
 
         <div class="form-group">
             
@@ -54,4 +37,5 @@ Data updated
         
         
     </form>
+</div>
 {% endblock %}

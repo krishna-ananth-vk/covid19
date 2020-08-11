@@ -15,6 +15,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Create your views here.
 
+
+
+# Home page
+
 def index(request):
     
 
@@ -29,7 +33,7 @@ def index(request):
     tc = dr.aggregate(Sum('confirmed'))
     tr = dr.aggregate(Sum('Recovered'))
     td = dr.aggregate(Sum('Death'))
-    ta = tc['confirmed__sum'] - tr['Recovered__sum']
+    ta = tc['confirmed__sum'] - tr['Recovered__sum'] - td['Death__sum']
     print(daily)
     
     d_active = daily.confirmed - daily.Recovered - daily.Death
@@ -38,7 +42,11 @@ def index(request):
     context = {'d': d , 'dr' : dr , 'tc' : tc, 'ta':ta , 'tr' : tr , 'td': td, 't':t, 'daily':daily , 'da':d_active}
 
     return render(request, 'index.html', context)
-    # return HttpResponse('hello world')
+
+
+
+# display district data
+
 def districtwise(request,did):
     try:
         dis = District.objects.get(pk=did)
@@ -50,6 +58,11 @@ def districtwise(request,did):
 
     context = {'d': dis}
     return render(request, 'district.html', context)
+
+
+
+# edit district data
+
 
 def edit(request,did):
 
@@ -64,6 +77,9 @@ def edit(request,did):
         return render(request, 'authentication_needed.html')
         # raise Http404("Not logged in")
     
+
+
+#updated district data
 
 def updated(request,did):
 
@@ -100,6 +116,42 @@ def tempdata():
 
     f.close()
 
+def data(request):
+
+    if request.user.is_authenticated:
+
+        return render(request, 'data_upload.html')
+
+    else:
+        return render(request, 'authentication_needed.html')
+
+def updateDailyReport(request):
+    data = request.POST.get('daily_report')
+
+    
+    # d = json.dumps(data)
+
+    d = json.loads(data)
+    for i in d:
+    # i=data[0]
+        d = DateReport()
+        
+        d.date = i["Date"]
+        d.confirmed = i["Confirmed"]
+        d.Recovered = i["Recovered"]
+        d.Death = i["Death"]
+        d.Active = i["Active"]
+        d.save()
+
+        print(i)
+
+    
+
+    return HttpResponse("data updated")
+
+
+def temptest():
+
 
     fd = open(os.path.join(BASE_DIR,'test.json'))
     data = json.load(fd)
@@ -119,9 +171,12 @@ def tempdata():
 
     f.close()
 
-def data(request):
-    return render(request, 'data_upload.html')
 
+
+
+
+
+# API
 
 
 def info(request):
@@ -150,7 +205,6 @@ def info(request):
 
 
 
-# API
 
 class DistrictViewSet(viewsets.ModelViewSet):
     queryset = District.objects.order_by('id')

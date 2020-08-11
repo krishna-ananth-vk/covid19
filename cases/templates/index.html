@@ -157,7 +157,7 @@ Covid19
 
 
             {% else %}
-                <p>No polls are available.</p>
+                <p>No data available.</p>
             {% endif %}
         </div>
 
@@ -232,8 +232,12 @@ Covid19
         
             {% if dr %}
     
-            <div class="h3">
+            <div class="h3 daily">
                 Daily Report
+                {% if user.is_authenticated %}
+                    <span><a href="/data"><i class="fa fa-edit" aria-hidden="true"></i></a></span>
+                {% endif %}
+                
             </div>
             <br>
 
@@ -268,6 +272,32 @@ Covid19
 
 
 </div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                Data Source : <a href="https://dashboard.kerala.gov.in">GoK Dashboard - Official Covid-19 Statistics</a>
+
+            </div>
+            <div class="col-sm">
+                Want to collaborate...?❤ Project on <a href="https://github.com/the-code-builder/covid19">GitHub</a>
+                
+                
+            </div>
+        </div>
+        <div class="text-center w-100 p-3 code" >
+            <i class="fa fa-code"></i> 
+            with 
+            <i class="fa fa-heart"></i> 
+            & 
+            <i class="fa fa-coffee"></i> 
+            by 
+            <a href="https://github.com/the-code-builder" class="text-reset">code-builder</a>
+        </div>
+    </div>
+
+</footer>
 {% endblock %}
 
 

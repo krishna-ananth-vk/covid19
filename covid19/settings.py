@@ -30,7 +30,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
 ALLOWED_HOSTS = ['0.0.0.0','127.0.0.1','192.168.43.113','https://keralacovid19.herokuapp.com/']
@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cases',
     'crispy_forms',
-    'rest_framework'
+    'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -58,6 +59,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'covid19.urls'
@@ -140,3 +143,5 @@ CRISPY_TEMPLATE_PACK="bootstrap4"
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
 django_heroku.settings(locals())
+
+CORS_ORIGIN_ALLOW_ALL = True 
